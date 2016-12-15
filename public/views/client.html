@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Nature The Game</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!--Start page container-->
+	<!--Script files: startpage.js | userinfo.js-->
+
+	<div class="container" id="startpage-container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2 id="header"><b>Virtual Nature The Game</b></h2>
+				<h4>On this adventure you will be exploring actual sights and locations of Koli!</h4>
+				<h4>You will also get some basic knowledge of Koli and it's surroundings.</h4>	
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="well">
+					<h3>Start your adventure by typing your name!</h3>
+					<input type="text" id="username" maxlength="15" placeholder="Write your name here!">
+					<p>Note that this input will only accept alphabetical letters (a-z)! Max length 15 letters.</p>
+					<button class="btn btn-info btn-lg" id="submitBtn" onclick="ukkokolille()">Begin!</button>
+				</div>				
+			</div>
+			<div class="col-md-6">
+				<div class="well">
+				<h3>About this game</h3>
+				<p>This game was made by Information Technology students of Karelia University of Applied Sciences.</p>
+				<p>Mozilla Firefox and Google Chrome are currently known to support this game the best. Therefore it is highly recommended to use these browsers for the best performance.</p>
+			</div>	
+			</div>
+		</div>
+		<div class="modal fade" id="username-alert-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Alert</h3>
+					</div>
+					<div class="modal-body">
+						<p>Please type your name before starting this game!</p>
+					</div>
+					<div class="modal-footer">
+						<a href="" class="btn btn-success" data-dismiss="modal">OK</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--End of Start page container-->
+
+	<!--Video screen container-->
+	<!--Script files: mainscreen.js | userinfo.js-->
+
+	<div class="container hidden" id="ukkokoli-container">
+		<!--Greeting modal - Start page-->	
+		<div class="modal fade" id="modal-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Ukko-Koli</h3>
+					</div>
+					<div class="modal-body">
+						<h4>Welcome to Virtual Nature The Game!</h4>
+						<p>Click and drag the view with your mouse. The view is 360-degrees!</p>
+						<p>It is suggested at this point to click on ?-button for more details.</p>
+					</div>
+					<div class="modal-footer">
+						<a href="" class="btn btn-success" data-dismiss="modal">Proceed</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Info modal - Start page-->
+		<div class="modal fade" id="modal-2">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Information</h3>
+					</div>
+					<div class="modal-body">
+						<p>Click on Start Adventure!-button to start the game!</p>
+						<p>You can also watch a short paddling video if you like.</p>
+						<p>After playing the adventure mode you will unlock a Quiz!</p>
+						<h4>Enjoy your virtual trip to Koli!</h4>
+					</div>
+					<div class="modal-footer">
+						<a href="" class="btn btn-success" data-dismiss="modal">Proceed</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<h2 id="header"><b>Virtual Nature The Game</b></h2>
+		</div>
+		<div class="row">
+			<div id="player"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-6" id="actionbox">
+			<div>
+				<h3 id="question">What would you like to do next</h3>
+				<p id="user" class="hidden">user</p>
+				<button class="btn btn-info btn-lg" onclick="loadAdventure()" id="btnAdventure">Start adventure!</button>
+				<button class="btn btn-info btn-lg hidden" onclick="loadQuiz()" id="btnQuiz">Quiz</button>
+				<button class="btn btn-info btn-lg" onclick="loadPaddling()" id="btnPaddling">Watch a paddling video</button>
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-2">?</button>
+			</div>
+			</div>
+			<div class="col-md-6 hidden" id="actionbox-paddling">
+				<div class="well">
+					<h3>Watch until the progress bar reaches maximum value.</h3>
+					<div class="progress">
+					<div class="progress-bar progress-bar-striped active" id="paddling-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="48" style="width:0%">
+					  </div>
+					</div>
+					<button class="btn btn-info hidden" onclick="loadUkko()" id="btnUkkokoli">Back to menu</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/scripts/startpage.js"></script>
+	<script src="/scripts/userinfo.js"></script>
+	<script src="/scripts/mainscreen.js"></script>
+
+    <!--End of video screen container-->
+
+    <!--Start of adventure game container-->
+
+    <div class="container hidden" id="adventure-container">
+    	<h2 id="header"><b>Adventure</b></h2>
+		<div class="row">
+			<div id="pano">this is the panorama view</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6" id="dialog">
+				<h2 id="dialogHead">Dialog Head</h2>
+				<h4 id="dialogTxt">Dialog</h4>
+				<h5 id="dialogStatus"></h5>
+			</div>
+			<div class="col-md-6">
+				<div class="well" id="dialog-options"></div>
+			</div>
+		</div>
+	</div>
+	<!--Info modal at the start of the adventure-->
+	<div class="modal fade" id="adventure-start-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">The adventure begins!</h3>
+					</div>
+					<div class="modal-body">
+						<p>Here you can see the panorama view, where all the sights will be shown.</p>
+						<p>Dialog of your adventure will be shown on the bottom-left part of this screen.</p>
+						<p>You can choose different dialog options from the small menu located on the bottom-right part of the screen.</p>
+						<p>Click on 'Return last location'-button, if you get carried away with Street View!</p>
+						<p><b>Remember to check every location to gain knowledge for the upcoming quiz! </b>You can return to main menu to take the quiz when you think you're ready.</p>
+					</div>
+					<div class="modal-footer">
+						<a href="" class="btn btn-success" data-dismiss="modal">Proceed</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Modal at the end of the adventure-->
+		<div class="modal fade" id="adventure-ending-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Quit adventure</h3>
+					</div>
+					<div class="modal-body">
+						<p>Are you sure you want to quit adventure mode? Please make sure you've seen everything!</p>
+					</div>
+					<div class="modal-footer">
+						<a href="" class="btn btn-success" onclick="loadMainScreen()" data-dismiss="modal">I'm sure</a>
+						<a href="" class="btn btn-warning" data-dismiss="modal">Nevermind</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Quiz alert modal-->
+		<div class="modal fade" id="quiz-alert">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Quiz time!</h3>
+					</div>
+					<div class="modal-body">
+						<p>Since you have played the adventure mode it is time to test your knowledge...</p>
+						<h4>Click on Quiz-button to take a short quiz and see how well you managed to learn Koli!</h4>
+					</div>
+					<div class="modal-footer">
+						<a href="" class="btn btn-success" data-dismiss="modal">I'm ready!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	<script src="/scripts/adventure.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl9zWKp9nRVP2m5IoxSwT2GXFpme38B6k"
+    async defer></script>
+
+    <!--End of the adventure game container-->
+
+    <!--Start of Quiz container-->
+    
+	<div class="container hidden" id="quiz-container">
+		<h2 id="header"><b>Quiz</b></h2>
+		<br>
+		<div class="row">
+			<div id="questions" class="col-md-6">
+				<div id="question1" class="well">
+					<h3>What is the name of the lake next to Ukko-Koli?</h3>
+					<div id="box1" class="hidden">
+						<form>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q1Answer1">Saimaa
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q1Answer2">Pielinen
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q1Answer3">Koitere
+						    </label>
+						</form>
+						<BR>
+						<button class="btn btn-success" onclick="checkQ1()">Answer</button>
+					</div>
+				</div>
+				<div id="question2" class="well">
+					<h3>What does ‘paddling’ mean in Finnish?</h3>
+					<div id="box2" class="hidden">
+						<form>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q2Answer1">Melonta
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q2Answer2">Uinti
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q2Answer3">Soutaminen
+						    </label>
+						</form>
+						<BR>
+						<button class="btn btn-success" onclick="checkQ2()">Answer</button>
+					</div>
+				</div>
+				<div id="question3" class="well">
+					<h3>Which of these towns isn’t located on the shore of the lake in the video?</h3>
+					<div id="box3" class="hidden">
+						<form>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q3Answer1">Nurmes
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q3Answer2">Lieksa
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q3Answer3">Ilomantsi
+						    </label>
+						</form>
+						<BR>
+						<button class="btn btn-success" onclick="checkQ3()">Answer</button>
+					</div>
+				</div>
+				<div id="question4" class="well">
+					<h3>Which one of these options is the most popular holiday activity at Koli?</h3>
+					<div id="box4" class="hidden">
+						<form>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q4Answer1">Downhill skiing
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q4Answer2">Dog sled riding
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q4Answer3">Basketball
+						    </label>
+						</form>
+						<BR>
+						<button class="btn btn-success" onclick="checkQ4()">Answer</button>
+					</div>
+				</div>
+				<div id="question5" class="well">
+					<h3>What is the height of the highest spot of Koli?</h3>
+					<div id="box5" class="hidden">
+						<form>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q5Answer1">542 meters
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q5Answer2">347 meters
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q5Answer3">215 meters
+						    </label>
+						</form>
+						<BR>
+						<button class="btn btn-success" onclick="checkQ5()">Answer</button>
+					</div>
+				</div>
+				<div id="question6" class="well">
+					<h3>Which one of these options isn't a summit at Koli?</h3>
+					<div id="box6" class="hidden">
+						<form>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q6Answer1">Paha-Koli
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q6Answer2">Hyvä-Koli
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q6Answer3">Ukko-Koli
+						    </label>
+						</form>
+						<BR>
+						<button class="btn btn-success" onclick="checkQ6()">Answer</button>
+					</div>
+				</div>
+				<div id="question7" class="well">
+					<h3>What is the lenght of the longest ski slope at Ukko-Koli?</h3>
+					<div id="box7" class="hidden">
+						<form>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q7Answer1">1000 meters
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q7Answer2">1500 meters
+						    </label>
+						    <label class="radio-inline">
+						      	<input type="radio" name="optradio" id="q7Answer3">2000 meters
+						    </label>
+						</form>
+						<BR>
+						<button class="btn btn-success" onclick="checkQ7()">Answer</button>
+					</div>
+				</div>												
+			</div>
+			<div id="action" class="col-md-6">
+				<div id="minimap" class="col-md-6-pull">
+					<div id="map"></div>
+				</div>
+				<div class="well" class="col-md-6-push">
+					<span id="summary"></span>
+					<div class="progress">
+					  <div class="progress-bar progress-bar-success" id="quiz-progress" role="progressbar" aria-valuenow="0"
+					  aria-valuemin="0" aria-valuemax="100" style="width:0%">
+					    <span class="sr-only">0% Complete</span>
+					  </div>
+					</div>
+					<span id="correctAnswers"></span>
+					<BR>
+					<button type="button" class="btn btn-primary" onclick="initMap()">Return map to start</button>
+					<button class="btn btn-info" onclick="loadMainScreen()">Back to menu</button>
+					<button class="btn btn-info" onclick="showQuizIntro()">?</button>
+				</div>			
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="quiz-start-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal">&times;</button>
+					<h3 class="modal-title">Quiz</h3>
+				</div>
+				<div class="modal-body">
+					<h4 id="userGreeting"></h4>
+					<p>Options appear when you hover your cursor on the question. Make sure to answer them all!</p>
+					<p>You also have a map which you can use with these questions.</p>
+				</div>
+				<div class="modal-footer">
+					<a href="" class="btn btn-success" data-dismiss="modal">Proceed</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="quiz-summary-modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" type="button" data-dismiss="modal">&times;</button>
+					<h3 class="modal-title">Quiz summary</h3>
+				</div>
+				<div class="modal-body">
+					<h4 id="quiz-summary">
+						
+					</h4>
+					<p id="end-greeting"></p>
+				</div>
+				<div class="modal-footer">
+					<a href="" class="btn btn-success" data-dismiss="modal">Proceed</a>
+					<a href="" class="btn btn-info" onclick="loadMainScreen()" data-dismiss="modal">Back to menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="/scripts/tietokilpailu.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCl9zWKp9nRVP2m5IoxSwT2GXFpme38B6k"
+    async defer></script>
+</body>
+</html>

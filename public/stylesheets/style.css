@@ -1,0 +1,104 @@
+body, html {
+		height: 100%;
+		background-color: #e5e6eb;
+		background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/7f/Koli_hill_view.jpg");
+		background-position: top;
+		background-size: initial;
+}
+#map {
+      height: 504px;
+      width: 550px;
+      margin-bottom: 20px;
+}
+.btn-lg{
+	transition-duration: 0.5s;
+}
+.btn-lg:hover{
+	font-size: 21px;
+}
+.well {
+	margin: 0px;
+}
+#pano{
+height: 600px;
+width: 100%;
+}
+#dialogBtn{
+	font-size: 17px;
+	width: 100%;
+	margin-top: 2px;
+	transition-duration: 0.5s;
+}
+#dialogBtn:hover{
+	background-color: #a6a6a6;
+	color: white;
+}
+#dialogBtnSuccess{
+	font-size: 17px;
+	width: 100%;
+	margin-top: 2px;
+	transition-duration: 0.7s;
+}
+#dialogBtnSuccess:hover{
+	font-size: 19px;
+	color: green;
+	background-color: white;
+}
+#dialogBtnDanger{
+font-size: 14px;
+width: 40%;
+margin-top: 15px;
+transition-duration: 0.5s;
+}
+#dialogBtnDanger:hover{
+	color: red;
+	background-color: white;
+	font-size: 16px;
+	margin-top: 15px;
+}
+#dialogBtnInfo{
+	float: right;
+font-size: 14px;
+width: 30%;
+margin-top: 15px;
+transition-duration: 0.5s;
+}
+#dialogBtnInfo:hover{
+color: #33ccff;
+	background-color: white;
+	font-size: 16px;
+	margin-top: 15px;
+}
+#dialog-options{
+	background-color: #b0e0e6;
+	margin-top: 10px;
+}
+#dialogStatus{
+	color: #5886a1;
+}
+#player{
+	border-radius: 13px;
+	width: 100%
+}
+#pano {
+	border-radius: 13px;
+}
+#dialog{
+	margin-top: 11px;
+	border: 2px solid;
+	border-color: rgba(255,255,255,0.1);
+	border-radius: 5px;
+	background-color:rgba(255,255,255,0.5);
+	padding-bottom: 2%;
+}
+#actionbox{
+	margin-top: 15px;
+	border: 2px solid;
+	border-color: rgba(255,255,255,0.1);
+	border-radius: 5px;
+	background-color:rgba(255,255,255,0.5);
+	padding-bottom: 10px;
+}
+#header{
+	border-bottom: 1px solid black;
+}
