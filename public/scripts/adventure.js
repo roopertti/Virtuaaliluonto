@@ -33,7 +33,7 @@ var places = [
     cameraPitch: 2,
     dialogBtn1: '<button class="btn btn-success" onclick="loadDialog(8)" id="dialogBtnSuccess">Take a trip to the beautiful nature of Koli!</button>',
     dialogBtn2: '<button class="btn" onclick="loadDialog(3)" id="dialogBtn">Chairlift of the ski slope</button>',
-    dialogBtn3: '<button class="btn" onclick="loadDialog(1)" id="dialogBtn">Go back to the elevator</button>'
+    dialogBtn3: '<button class="btn" onclick="loadDialog(1)" id="dialogBtn">Go back to the hotel</button>'
 },
 //Tuolihissin edusta id=3, Tästä voisi alkaa laskettelu
 {
@@ -44,7 +44,7 @@ var places = [
     cameraPitch: 1,
     dialogBtn1: '<button class="btn btn-success" onclick="loadDialog(4)" id="dialogBtnSuccess">Take a skiing trip</button>',
     dialogBtn2: '<button class="btn" onclick="loadDialog(2)" id="dialogBtn">Koli Nature Centre Ukko</button>',
-    dialogBtn3: '<button class="btn" onclick="loadDialog(1)" id="dialogBtn">Go back to the elevator</button>'
+    dialogBtn3: '<button class="btn" onclick="loadDialog(1)" id="dialogBtn">Go back to the hotel</button>'
 },
 // Laskettelun alku Ukko-kolin huipulla id=4
 {
@@ -54,7 +54,7 @@ var places = [
     cameraHeading: 120,
     cameraPitch: 1,
     dialogBtn1: '<button class="btn" onclick="loadDialog(5)" id="dialogBtn">Continue to ski downhill</button>',
-    dialogBtn2: '<button class="btn" onclick="loadDialog(1)" id="dialogBtn">Go back to the elevator</button>'
+    dialogBtn2: '<button class="btn" onclick="loadDialog(1)" id="dialogBtn">Go back to the hotel</button>'
 },
 // Laskettelun puoliväli id=5
 {
@@ -82,7 +82,7 @@ var places = [
     position: {lat: 63.0995303, lng: 29.8208522},
     cameraHeading: 90,
     cameraPitch: 1,
-    dialogBtn1: '<button class="btn" onclick="loadDialog(1)" id="dialogBtn">Go back to the elevator</button>'
+    dialogBtn1: '<button class="btn" onclick="loadDialog(1)" id="dialogBtn">Go back to the hotel</button>'
 },
 // Nature trip id=8
 {
